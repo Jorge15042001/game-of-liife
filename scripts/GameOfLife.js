@@ -9,12 +9,8 @@ let GameOfLife =
             const X = parseInt(x);
             const Y = parseInt(y);
     
-            if (this.GameState.data[X][Y].alive )
-            {
-                fill (0);
-            }
-            else fill (200);
-            rect(X*InfinityGrid.gridSize,Y*InfinityGrid.gridSize,InfinityGrid.gridSize);
+            const color = this.GameState.data[X][Y].alive ? 0:200;
+            InfinityGrid.drawCellInGrid(X,Y,color);
         }
     },
             
