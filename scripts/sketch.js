@@ -12,7 +12,7 @@ function setup()
     GameOfLife.GameState.insert(20,22);
     GameOfLife.GameState.insert(20,23);
 
-    frameRate (10);
+    frameRate (60);
 
 
 }
