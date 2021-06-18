@@ -8,12 +8,6 @@ const directions = [
     {"dx":-1,"dy": 1},
     {"dx":-1,"dy": 0},
     ];
-class Cell {
-    constructor (){
-        this.alive = false;
-        this.neighborsCount = 0;
-    }
-}
 class PlanarGraph
 {
     constructor()
