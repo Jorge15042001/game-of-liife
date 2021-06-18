@@ -28,6 +28,15 @@ let InfinityGrid =
         this.top += dy;
         this.left += dx;
     },
+    drawCellInGrid(r,c,color)
+    {
+        fill(color);
+        rect(
+            c*this.gridSize + this.left,
+            r*this.gridSize + this.top,
+            this.gridSize
+        );
+    }
     
 }
 //Object.defineProperty(InfinityGrid,"singleton",
