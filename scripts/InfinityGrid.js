@@ -14,8 +14,13 @@ let InfinityGrid =
 
         for (let r = 0; r< rows;r ++) for (let c = 0; c< cols; c++)
         {
+            const y_offset = this.top - Math.ceil(this.top / this.gridSize)*this.gridSize;
+            const x_offset = this.left - Math.ceil(this.left / this.gridSize)*this.gridSize;
             noFill();
-            rect(c*this.gridSize,r*this.gridSize,this.gridSize);
+            rect(
+                c*this.gridSize + x_offset,
+                r*this.gridSize + y_offset,
+                this.gridSize);
         }
     },
     translate : function (dx ,dy)
