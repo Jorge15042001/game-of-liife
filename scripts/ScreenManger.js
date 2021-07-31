@@ -22,6 +22,7 @@ let  ScreenManager =
         this.width = document.documentElement.clientWidth;
         this.height = document.documentElement.clientHeight;
 
+        //this.notifyObservers();
         this.notifyObservers();
     }
 }

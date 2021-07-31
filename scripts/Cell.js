@@ -1,6 +1,8 @@
 class Cell {
-    constructor (){
-        this.alive = false;
-        this.neighborsCount = 0;
+    constructor (alive=false){
+        this.isAlive  = alive; //actual state
+        this.wasAlive = false;//last state
+
+        this.neighbors = new Set();//list of neighbors
     }
 }

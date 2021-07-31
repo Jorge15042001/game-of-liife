@@ -1,11 +1,11 @@
 let InfinityGrid =
 {
-    top : 0,
-    left : 0,
+    totalOffsetTop : 0,
+    totalOffsetLeft : 0,
+    relativeOffsetTop :0,
+    relativeOffsetLeft : 0,
     gridSize : 30,
     lineBorder :1,
-    rows : 0,
-    cols : 0,
 
     draw : function ()
     {
@@ -14,26 +14,28 @@ let InfinityGrid =
 
         for (let r = 0; r< rows;r ++) for (let c = 0; c< cols; c++)
         {
-            const y_offset = this.top - Math.ceil(this.top / this.gridSize)*this.gridSize;
-            const x_offset = this.left - Math.ceil(this.left / this.gridSize)*this.gridSize;
             noFill();
             rect(
-                c*this.gridSize + x_offset,
-                r*this.gridSize + y_offset,
+                c*this.gridSize + this.relativeOffsetLeft,
+                r*this.gridSize + this.relativeOffsetTop,
                 this.gridSize);
         }
     },
     translate : function (dx ,dy)
     {
-        this.top += dy;
-        this.left += dx;
+        this.totalOffsetTop += dy;
+        this.totalOffsetLeft += dx;
+
+        this.relativeOffsetTop = this.totalOffsetTop - Math.ceil(this.totalOffsetTop / this.gridSize)*this.gridSize;
+        this.relativeOffsetLeft = this.totalOffsetLeft - Math.ceil(this.totalOffsetLeft / this.gridSize)*this.gridSize;
+        
     },
     drawCellInGrid(r,c,color)
     {
         fill(color);
         rect(
-            c*this.gridSize + this.left,
-            r*this.gridSize + this.top,
+            c*this.gridSize + this.totalOffsetLeft,
+            r*this.gridSize + this.totalOffsetTop,
             this.gridSize
         );
     }
